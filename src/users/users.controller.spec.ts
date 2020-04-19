@@ -10,13 +10,14 @@ describe('UsersController', () => {
       controllers: [UsersController],
       providers: [UsersService],
     }).compile();
-
     usersController = users.get<UsersController>(UsersController);
   });
 
   describe('root', () => {
     it('should return "Hello World 2!"', () => {
-      expect(usersController.getHello()).toBe('Hello World 2!');
+      expect(JSON.stringify(usersController.getHello())).toBe(
+        '[{"id": 1,"name": "Adan","lastName": "Carrasco","email": "adan.carrasco@hotmail.com","test": "test"}]',
+      );
     });
   });
 });

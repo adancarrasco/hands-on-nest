@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "127.0.0.1",
+  "port": 5432,
+  "username": "hands-on-nest",
+  "password": "hands-on-nest",
+  "database": "hands-on-nest",
+  "entities": [
+    "src/**/*.entity.ts"
+  ],
+  "migrationsTableName": "migration",
+  "migrations": [
+    "src/migrations/*Migration.ts"
+  ],
+  "cli": {
+    "migrationsDir": "src/migration"
+  },
+  "ssl": false
+}

@@ -6,7 +6,7 @@
 [travis-url]: https://travis-ci.org/nestjs/nest
 [linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
 [linux-url]: https://travis-ci.org/nestjs/nest
-  
+
   <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
@@ -76,4 +76,39 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## License
 
-  Nest is [MIT licensed](LICENSE).
+Nest is [MIT licensed](LICENSE).
+
+# Creating migration DB
+
+`npm run generate:config:orm`
+
+## In the .env file
+
+### For Heroku
+
+POSTGRES_HOST=ec2-NN-NNN-NN-NN.eu-west-1.compute.amazonaws.com
+POSTGRES_PORT=5432
+POSTGRES_USER=postgres_username
+POSTGRES_PASSWORD=postgres_password
+POSTGRES_DATABASE=postgres_database
+MODE=DEV
+RUN_MIGRATIONS=true
+SSL=true
+TYPEORM_DRIVER_EXTRA = {"ssl": {"rejectUnauthorized": false}}
+PGSSLMODE=require
+TYPEORM_HOST=ec2-NN-NNN-NN-NN.eu-west-1.compute.amazonaws.com
+
+### For local
+
+POSTGRES_HOST=127.0.0.1
+POSTGRES_PORT=5432
+POSTGRES_USER=hands-on-nest
+POSTGRES_PASSWORD=hands-on-nest
+POSTGRES_DATABASE=hands-on-nest
+PORT=3000
+MODE=DEV
+RUN_MIGRATIONS=true
+SSL=false
+TYPEORM_DRIVER_EXTRA = {"ssl": {"rejectUnauthorized": false}}
+PGSSLMODE=require
+TYPEORM_HOST=localhost

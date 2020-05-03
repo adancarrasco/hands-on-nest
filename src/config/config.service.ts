@@ -50,7 +50,14 @@ class ConfigService {
         migrationsDir: 'src/migration',
       },
 
-      ssl: this.isProduction(),
+      ssl: this.getValue('SSL').toString() === 'true',
+      extra: this.isProduction()
+        ? {
+            ssl: {
+              rejectUnauthorized: false,
+            },
+          }
+        : null,
     };
   }
 }
@@ -61,6 +68,7 @@ const configService = new ConfigService(process.env).ensureValues([
   'POSTGRES_USER',
   'POSTGRES_PASSWORD',
   'POSTGRES_DATABASE',
+  'SSL',
 ]);
 
 export { configService };

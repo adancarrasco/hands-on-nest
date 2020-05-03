@@ -6,14 +6,15 @@
   "password": "hands-on-nest",
   "database": "hands-on-nest",
   "entities": [
-    "src/**/*.entity.ts"
+    "dist/**/*.entity.js"
   ],
   "migrationsTableName": "migration",
   "migrations": [
-    "src/migrations/*Migration.ts"
+    "dist/migrations/*Migration.js"
   ],
   "cli": {
     "migrationsDir": "src/migration"
   },
-  "ssl": false
+  "ssl": false,
+  "extra": null
 }

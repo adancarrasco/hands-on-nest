@@ -80,6 +80,8 @@ Nest is [MIT licensed](LICENSE).
 
 # Creating migration DB
 
+### For local
+
 Create a .env file and put the following:
 
 POSTGRES_HOST=127.0.0.1
@@ -92,10 +94,6 @@ MODE=DEV
 RUN_MIGRATIONS=true
 SSL=false
 
-Then run:
-
-`npm run generate:config:orm`
-
 ### For Heroku
 
 If you want to have this in a Heroku you need to create your .env file with the following:
@@ -105,9 +103,18 @@ POSTGRES_PORT=5432
 POSTGRES_USER=postgres_username
 POSTGRES_PASSWORD=postgres_password
 POSTGRES_DATABASE=postgres_database
-MODE=DEV
+MODE=PROD
 RUN_MIGRATIONS=true
 SSL=true
 TYPEORM_DRIVER_EXTRA = {"ssl": {"rejectUnauthorized": false}}
-PGSSLMODE=require
-TYPEORM_HOST=ec2-NN-NNN-NN-NN.eu-west-1.compute.amazonaws.com
+
+Then run:
+`yarn build`
+
+`yarn generate:config:orm`
+
+In local:
+`yarn start`
+
+In Heroku:
+`git push heroku master`
